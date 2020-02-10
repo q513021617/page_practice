@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>点赞爱心</title>
+    <script src="../js/index.js"></script>
+    <script src="../js/jq.js"></script>
+    <script >
+    $(function() {
+    $(".heart").on("click", function() {
+        $(this).toggleClass("is-active");
+    });
+});
+    </script>
+    <style>
+    .heart {
+    width: 100px;
+    height: 100px;
+    margin-top: -25px;
+    margin-left: -25px;
+    background: url("../img/heart.png") no-repeat;
+    background-position: 0 0;
+    cursor: pointer;
+    -webkit-transition: background-position 0.5s steps(28);
+    transition: background-position 0.5s steps(28);
+    /*深度理解
+            *整个动画1s完成�?
+            *这里1s要移�?00的像素，�?s要有十步走完，每步是平均下来�?.1s�?
+            *每步比上一步多走了100px的位置，这个走是瞬间走到的�?
+            *end表示每一步在接近0.28s再去�?
+*/
+    -webkit-transition-duration: 0s;
+    transition-duration: 0.5s;
+}
+.heart.is-active {
+    -webkit-transition-duration: 0.5s;
+    transition-duration: 0.5s;
+    background-position: -2800px 0;
+}
+
+    </style>
+</head>
+<body>
+    
+<div class="stage">
+    <div class="heart"></div>
+</div>
+</body>
+</html>
